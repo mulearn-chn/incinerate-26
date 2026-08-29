@@ -74,13 +74,33 @@ function useCountdown(targetDate: Date) {
 }
 
 export default function App() {
-const target = new Date("2026-10-04T00:00:00+05:30");
-console.log(target);
-console.log(new Date());
-console.log(target.getTime()-Date.now());
+  const target = new Date("2026-10-04T00:00:00+05:30");
+  console.log(target);
+  console.log(new Date());
+  console.log(target.getTime()-Date.now());
   const { days, hours, minutes } = useCountdown(target);
   const planetRef = useRef<HTMLImageElement>(null);
   const [showLoader, setShowLoader] = useState(true);
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: "What is INCINERATE?",
+      answer: "INCINERATE is a flagship entrepreneurship initiative jointly organized by µLearn CHN, µLearn PRN and µLearn JUKC designed to empower innovators, builders, and aspiring founders to transform ideas into tangible solutions."
+    },
+    {
+      question: "Who can participate?",
+      answer: "Aspiring founders, developers, designers, and students who want to turn their creative ideas into working prototypes are welcome to participate."
+    },
+    {
+      question: "What support is provided during the Build Phase?",
+      answer: "Throughout the Build Phase, participants are supported through expert-led workshops, mentorship sessions, doubt-clearing discussions, and entrepreneurial acceleration programs that help refine ideas, strengthen execution, and accelerate product development."
+    }
+  ];
+
+  const toggleFaq = (index: number) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  };
 
   useEffect(() => {
     let frame: number;
@@ -252,6 +272,49 @@ transform:`scale(${.4+Math.random()*1.8})`
         </a>
 
       </section>
+
+      {/* ════════ ABOUT SECTION ════════ */}
+      <section id="about" className="section-container">
+        <h2 className="section-title">About Incinerate</h2>
+        <div className="glass-card">
+          <p className="about-text">
+            INCINERATE is a flagship entrepreneurship initiative jointly organized by µLearn CHN, µLearn PRN and µLearn JUKC designed to empower innovators, builders, and aspiring founders to transform ideas into tangible solutions. Built around the philosophy of learning through execution, the program provides participants with a structured platform to validate ideas, collaborate with peers, and develop working prototypes while receiving continuous guidance from mentors and industry experts.
+          </p>
+          <p className="about-text">
+            More than a challenge, INCINERATE is the beginning of an entrepreneurial journey. Throughout the Build Phase, participants are supported through expert-led workshops, mentorship sessions, doubt-clearing discussions, and entrepreneurial acceleration programs that help refine ideas, strengthen execution, and accelerate product development. These initiatives provide practical exposure to innovation, product thinking, and entrepreneurship while fostering a culture of collaboration and continuous learning.
+          </p>
+        </div>
+      </section>
+
+      {/* ════════ FAQs SECTION ════════ */}
+      <section id="faqs" className="section-container">
+        <h2 className="section-title">FAQs</h2>
+        <div className="glass-card">
+          <div className="faq-list">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index} 
+                className={`faq-item ${activeFaq === index ? "faq-item-active" : ""}`}
+              >
+                <button 
+                  className="faq-question" 
+                  onClick={() => toggleFaq(index)}
+                  aria-expanded={activeFaq === index}
+                >
+                  <span>{faq.question}</span>
+                  <span className="faq-icon">+</span>
+                </button>
+                {activeFaq === index && (
+                  <p className="faq-answer">
+                    {faq.answer}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </main>
     </>
   );
