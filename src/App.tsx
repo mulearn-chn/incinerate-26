@@ -98,6 +98,57 @@ export default function App() {
     }
   ];
 
+  const timelinePhases = [
+    {
+      phase: "Phase 0",
+      title: "Registration, Submission & Shortlisting",
+      date: "August 31 – September 13",
+      desc: "Register, submit your idea, and compete for a spot among the top 40 teams.",
+      steps: [
+        { num: "01", title: "Register & Submit", desc: "Register and submit your idea." },
+        { num: "02", title: "Evaluate", desc: "Ideas assessed for feasibility, originality & impact." },
+        { num: "03", title: "Shortlist", desc: "Top 40 teams advance." },
+        { num: "04", title: "Refund", desc: "Non-shortlisted teams receive a 70% refund." }
+      ]
+    },
+    {
+      phase: "Phase 1",
+      title: "Online Pitching & Shortlisting",
+      date: "September 15 – September 19",
+      desc: "Pitch your solution and compete for the top 20.",
+      steps: [
+        { num: "01", title: "Online Pitch", desc: "Present your solution in 5 minutes." },
+        { num: "02", title: "Expert Q&A", desc: "Answer questions and discuss your idea for 5 minutes." },
+        { num: "03", title: "Shortlist", desc: "Top 20 teams advance." },
+        { num: "04", title: "Refund", desc: "Non-shortlisted teams receive a 50% refund." }
+      ]
+    },
+    {
+      phase: "Phase 2",
+      title: "Build Phase & Final Shortlisting",
+      date: "September 20 – October 4",
+      desc: "Build, refine, and validate your product with expert guidance.",
+      steps: [
+        { num: "01", title: "Build", desc: "Develop and test your product." },
+        { num: "02", title: "Mentorship", desc: "Learn through expert sessions and workshops." },
+        { num: "03", title: "Refine", desc: "Improve your product and final pitch." },
+        { num: "04", title: "Shortlist", desc: "Top 10 teams advance." }
+      ]
+    },
+    {
+      phase: "Phase 3",
+      title: "Final Presentation & Community Integration",
+      date: "Final Event: October 10",
+      desc: "Showcase your product and take the next step.",
+      steps: [
+        { num: "01", title: "Final Presentation", desc: "Showcase your product." },
+        { num: "02", title: "Judges' Q&A", desc: "Answer the judges' questions." },
+        { num: "03", title: "Winners & Recognition", desc: "Get recognised for your innovation." },
+        { num: "04", title: "Market Support", desc: "Receive support to take your product forward." }
+      ]
+    }
+  ];
+
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index);
   };
@@ -142,7 +193,7 @@ transform:`scale(${.4+Math.random()*1.8})`
 
 }}
 
- />
+  />
 
 ))}
       {/* ── Dark vignette overlay ── */}
@@ -286,6 +337,38 @@ transform:`scale(${.4+Math.random()*1.8})`
         </div>
       </section>
 
+      {/* ════════ TIMELINE & PHASES SECTION ════════ */}
+      <section id="timeline" className="section-container">
+        <span id="phases" style={{ position: "absolute", top: "-100px" }}></span>
+        <h2 className="section-title">Timeline & Phases</h2>
+        <div className="glass-card">
+          <div className="timeline-track">
+            {timelinePhases.map((phase, idx) => (
+              <div key={idx} className="timeline-phase">
+                <span className="timeline-dot"></span>
+                <div className="phase-header">
+                  <span className="phase-number">{phase.phase}</span>
+                  <h3 className="phase-title">{phase.title}</h3>
+                  <span className="phase-date">{phase.date}</span>
+                </div>
+                <p className="phase-desc">{phase.desc}</p>
+                <div className="phase-steps-grid">
+                  {phase.steps.map((step, sIdx) => (
+                    <div key={sIdx} className="step-card">
+                      <span className="step-num">{step.num}</span>
+                      <div className="step-content">
+                        <h4 className="step-title">{step.title}</h4>
+                        <p className="step-desc">{step.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ════════ FAQs SECTION ════════ */}
       <section id="faqs" className="section-container">
         <h2 className="section-title">FAQs</h2>
@@ -314,6 +397,106 @@ transform:`scale(${.4+Math.random()*1.8})`
           </div>
         </div>
       </section>
+
+      {/* ════════ FOOTER ════════ */}
+      <footer className="incinerate-footer">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <img src="/images/Group 1171275091.png" alt="Incinerate" className="footer-logo" />
+            <p className="footer-tagline" style={{ marginBottom: '16px' }}>
+              Burn the playbook, build the future. A flagship entrepreneurship initiative jointly organized by µLearn CHN, µLearn PRN and µLearn JUKC.
+            </p>
+            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              <a href="https://maps.app.goo.gl/MQ3vBqkb3Lnk6AyC8" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                📍 Jain University Kochi Location
+              </a>
+              <a href="https://drive.google.com/file/d/1W1UkCtEoayHHbXGOjv-mCMaO9lsDfr4p/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#ff7c25' }}>
+                📄 Brochure ↗
+              </a>
+            </div>
+          </div>
+
+          <div className="footer-col">
+            <h4 className="footer-col-title">
+              <span>📞</span> Connect with Us
+            </h4>
+            <div className="contact-table-container">
+              <table className="contact-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Contact Number</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Nithin Jayakumar</strong></td>
+                    <td><a href="tel:+919037195527" className="contact-link-table">+91 9037195527</a></td>
+                    <td><a href="mailto:nithinjayakumar2205@gmail.com" className="contact-link-table">nithinjayakumar2205@gmail.com</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sundara Siva Sreerag</strong></td>
+                    <td><a href="tel:+918137934994" className="contact-link-table">+91 8137934994</a></td>
+                    <td><a href="mailto:remasundhar0@gmail.com" className="contact-link-table">remasundhar0@gmail.com</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="footer-col" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '16px' }}>
+            <h4 className="footer-col-title">Follow Us</h4>
+            <div className="social-grid">
+              <div className="social-item">
+                <span className="social-icon-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </span>
+                <a href="mailto:incinerate.mulearn@gmail.com" className="footer-link">incinerate.mulearn@gmail.com</a>
+              </div>
+              <div className="social-item">
+                <span className="social-icon-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </span>
+                <a href="https://www.linkedin.com/company/mulearn-chn/" target="_blank" rel="noopener noreferrer" className="footer-link">mulearn-chn</a>
+              </div>
+              <div className="social-item">
+                <span className="social-icon-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </span>
+                <a href="https://www.linkedin.com/company/mulearn-prn/" target="_blank" rel="noopener noreferrer" className="footer-link">mulearn-prn</a>
+              </div>
+              <div className="social-item">
+                <span className="social-icon-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </span>
+                <a href="https://www.instagram.com/incinerate.26?igsi=aHRib295cTJyM2Zr" target="_blank" rel="noopener noreferrer" className="footer-link">@incinerate.26</a>
+              </div>
+              <div className="social-item">
+                <span className="social-icon-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </span>
+                <a href="https://www.instagram.com/mulearn.chn?igsi=NHplanhpY3Nndm1i" target="_blank" rel="noopener noreferrer" className="footer-link">@mulearn.chn</a>
+              </div>
+              <div className="social-item">
+                <span className="social-icon-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </span>
+                <a href="https://www.instagram.com/mulearn.prn?igsi=MWJvc2p2dW1yMzhsNg==" target="_blank" rel="noopener noreferrer" className="footer-link">@mulearn.prn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="footer-bottom">
+          <p className="footer-copy">
+            &copy; {new Date().getFullYear()} INCINERATE. All rights reserved.
+          </p>
+          <span className="footer-orgs">
+            µLearn CHN &times; µLearn PRN &times; µLearn JUKC
+          </span>
+        </div>
+      </footer>
 
     </main>
     </>
