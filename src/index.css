@@ -1288,6 +1288,146 @@ transform:rotate(360deg);
 }
 
 /* ─────────────────────────────────────────────
+   ORGANISERS SECTION
+───────────────────────────────────────────── */
+.organisers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.organiser-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 36px 24px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.organiser-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff7c25, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.organiser-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 124, 37, 0.35);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 0 32px rgba(255, 124, 37, 0.1),
+    inset 0 0 20px rgba(255, 124, 37, 0.05);
+}
+
+.organiser-card:hover::before {
+  opacity: 1;
+}
+
+.organiser-index {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 124, 37, 0.3);
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.organiser-card:hover .organiser-index {
+  color: rgba(255, 124, 37, 0.55);
+}
+
+.organiser-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, rgba(255, 124, 37, 0.2) 0%, rgba(255, 59, 10, 0.12) 100%);
+  border: 1.5px solid rgba(255, 124, 37, 0.35);
+  box-shadow:
+    0 0 18px rgba(255, 124, 37, 0.15),
+    inset 0 0 10px rgba(255, 124, 37, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.organiser-card:hover .organiser-icon {
+  box-shadow:
+    0 0 24px rgba(255, 124, 37, 0.3),
+    inset 0 0 14px rgba(255, 124, 37, 0.12);
+  transform: scale(1.06);
+}
+
+.organiser-name {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 10px rgba(255, 124, 37, 0.2);
+}
+
+.organiser-institution {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ff7c25;
+  letter-spacing: 0.03em;
+  margin-bottom: 14px;
+  opacity: 0.85;
+}
+
+.organiser-desc {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #b3b3b3;
+}
+
+@media (max-width: 900px) {
+  .organisers-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .organiser-card {
+    padding: 28px 20px 24px;
+  }
+  .organiser-name {
+    font-size: 1.05rem;
+  }
+  .organiser-desc {
+    font-size: 0.85rem;
+  }
+}
+
+/* ─────────────────────────────────────────────
    FOOTER
 ───────────────────────────────────────────── */
 .incinerate-footer {

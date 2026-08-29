@@ -10,7 +10,8 @@ export default function Loader({ onComplete }: Props) {
   useEffect(() => {
     const timer = setTimeout(() => onComplete(), 6000);
     return () => clearTimeout(timer);
-  }, [onComplete]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Generate particle data once. Fewer particles on small screens.
   const particles = useMemo(() => {
@@ -22,7 +23,6 @@ export default function Loader({ onComplete }: Props) {
       const spread = 35; // percent spread around center
       const left = 50 + (Math.random() - 0.5) * spread; // center +/- spread/2
       const rotation = Math.random() * 360;
-      const sizeRand = Math.random();
       const elongated = Math.random() > 0.7;
       const width = elongated ? (Math.random() * 2 + 1) : (Math.random() * 6 + 2);
       const height = elongated ? (Math.random() * 20 + 8) : width;
