@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import Loader from "./Loader";
 
-const navItems = ["About", "Timeline", "Phases", "Guidelines", "Prize Pool", "Partners", "FAQs"];
+const navItems = ["About", "Timeline", "Phases", "Organisers", "Guidelines", "Prize Pool", "Partners", "FAQs"];
 
 const emberStyles = [
   { left: "9%",  top: "54%", width: 3, height: 72,  delay: "-1.4s",  duration: "8.6s",  rotate: -32 },
@@ -365,6 +365,40 @@ transform:`scale(${.4+Math.random()*1.8})`
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ ABOUT ORGANISERS SECTION ════════ */}
+      <section id="organisers" className="section-container">
+        <h2 className="section-title">About Organisers</h2>
+        <div className="organisers-grid">
+          <div className="glass-card organiser-card">
+            <span className="organiser-index">01</span>
+            <div className="organiser-icon">µ</div>
+            <h3 className="organiser-name">µLearn CHN</h3>
+            <span className="organiser-institution">College of Engineering Chengannur</span>
+            <p className="organiser-desc">
+              The µLearn community chapter of College of Engineering Chengannur (CEC), powered by GTech. A student-driven space for learning, collaboration, hands-on experiences and turning ideas into real-world solutions.
+            </p>
+          </div>
+          <div className="glass-card organiser-card">
+            <span className="organiser-index">02</span>
+            <div className="organiser-icon">µ</div>
+            <h3 className="organiser-name">µLearn PRN</h3>
+            <span className="organiser-institution">College of Engineering Perumon</span>
+            <p className="organiser-desc">
+              The µLearn community chapter of College of Engineering Perumon (CEP). A student-driven community built around curiosity, collaboration, experiential learning and developing real-world skills.
+            </p>
+          </div>
+          <div className="glass-card organiser-card">
+            <span className="organiser-index">03</span>
+            <div className="organiser-icon">µ</div>
+            <h3 className="organiser-name">µLearn JUKC</h3>
+            <span className="organiser-institution">JAIN University, Kochi</span>
+            <p className="organiser-desc">
+              The µLearn community chapter of JAIN (Deemed-to-be University), Kochi. A community of learners and creators exploring emerging technologies through workshops, hackathons and hands-on challenges.
+            </p>
           </div>
         </div>
       </section>
